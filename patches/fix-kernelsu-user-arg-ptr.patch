@@ -1,0 +1,11 @@
+--- a/drivers/kernelsu/sulog/event.c
++++ b/drivers/kernelsu/sulog/event.c
+@@ -376,7 +376,7 @@ static long ksu_sulog_ioctl_grant_root(struct file *file, unsigned int cmd,
+ 		return -EPERM;
+ 	}
+ 
+-	pending = ksu_sulog_capture(KSU_SULOG_EVENT_IOCTL_GRANT_ROOT, NULL, USER_ARG_NULL, gfp);
++	pending = ksu_sulog_capture(KSU_SULOG_EVENT_IOCTL_GRANT_ROOT, NULL, *USER_ARG_NULL, gfp);
+ 	if (IS_ERR(pending)) {
+ 		return PTR_ERR(pending);
+ 	}
